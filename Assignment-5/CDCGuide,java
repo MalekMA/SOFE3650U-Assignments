@@ -1,11 +1,11 @@
 import java.sql.Time;
 import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 
 public class CDCGuide implements Guide, TVListings {
 
-	LinkedList<TVListings> myListings = new LinkedList<TVListings>();
+	ArrayList<TVListings> myListings = new ArrayList<TVListings>();
 	
 	@Override
 	public Iterator<TVListings> createIterator() {
