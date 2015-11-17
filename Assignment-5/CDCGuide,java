@@ -1,28 +1,34 @@
-import java.sql.Time;
 import java.util.Iterator;
 import java.util.ArrayList;
 
 
-public class CDCGuide implements Guide, TVListings {
+public class CDCGuide implements Guide {
 
-	ArrayList<TVListings> myListings = new ArrayList<TVListings>();
+	ArrayList<TVListings> myListings;
+	
+	public CDCGuide(){
+		myListings = new ArrayList<TVListings>();
+		
+		addListing("Cartoon", "12:00");
+		addListing("Reality", "13:00");
+		addListing("News", "14:30");
+		addListing("Sports", "18:00");
+		
+	}
+	
+	public void addListing(String title, String time){
+		TVListings listing = new TVListings(title, time);
+		myListings.add(listing);
+	}
+	
+	public ArrayList<TVListings> getTVListings(){
+		return myListings;
+	}
 	
 	@Override
 	public Iterator<TVListings> createIterator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getTitle() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Time getTime() {
-		// TODO Auto-generated method stub
-		return null;
+		return new CDCGuideIterator(myListings);
 	}
 
 }
+
