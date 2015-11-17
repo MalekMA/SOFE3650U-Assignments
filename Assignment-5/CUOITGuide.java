@@ -1,28 +1,35 @@
-import java.sql.Time;
 import java.util.Iterator;
 import java.util.LinkedList;
 
 
-public class CUOITGuide implements Guide, TVListings {
+public class CUOITGuide implements Guide{
 	
-	LinkedList<TVListings> myListings = new LinkedList<TVListings>();
-
+	LinkedList<TVListings> myListings;
+	
+	public CUOITGuide(){
+		myListings = new LinkedList<TVListings>();
+		
+		addListing("News at Noon", "12:00");
+		addListing("Comedy Special", "15:00");
+		addListing("Live Event", "17:00");
+		addListing("Cars!", "20:00");
+	}
+	
+	public void addListing(String title, String time){
+		TVListings listing = new TVListings(title, time);
+		myListings.add(listing);
+	}
+	
+	public LinkedList<TVListings> getTVListings(){
+		return myListings;
+	}
+	
+	
 	@Override
 	public Iterator<TVListings> createIterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return new CUOITGuideIterator(myListings);
 	}
 
-	@Override
-	public String getTitle() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public Time getTime() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }
