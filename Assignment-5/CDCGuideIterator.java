@@ -8,7 +8,7 @@
 import java.util.ArrayList;
 
 /**
- * The CDCGuideIterator class allows us to traverse the DCGuide collection
+ * The CDCGuideIterator class allows us to traverse the CDCGuide collection
  */
 public class CDCGuideIterator implements Iterator, java.util.Iterator<TVListings>{
 	
