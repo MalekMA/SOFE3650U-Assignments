@@ -1,27 +1,48 @@
+/**
+ * Done by: 	Malek Mustapha-Abdullah	100541476
+ *		Clayton Cheung		100539921
+ * Course: 	SOFE3650U Software Design and Architecture
+ * Date: 	November 16, 2015
+ */
+ 
 import java.util.LinkedList;
 
-
+/**
+ * The CUOITGuideIterator class allows us to traverse the CUOITGuide collection
+ */
 public class CUOITGuideIterator implements Iterator, java.util.Iterator<TVListings>{
 
-	LinkedList<TVListings> myListings = new LinkedList<TVListings>();
-	int position = 0;
+	LinkedList<TVListings> myListings = new LinkedList<TVListings>();		// Creates a local Linked List
+	int position = 0;								// Creates a local variable position to be used in iteration
 	
+	/**
+	 * CUOITGuideIterator constructor
+	 * @param  listings  the Linked List from CUOITGuide is needed as a parameter
+	 */
 	public CUOITGuideIterator(LinkedList<TVListings> listings){
-		this.myListings = listings;
+		this.myListings = listings;						// Stores the Array List from CDCGuide into the local one
 	}
 	
-	@Override
+	/**
+	 * The next method gets the contents of the Linked List
+	 * @return  listings  the listings that are stored in the Linked List
+	 */
 	public TVListings next() {
-		TVListings listings = myListings.get(position);
-		position++;
-		return listings;
+		TVListings listings = myListings.get(position);				// Gets the current listing at index position from the Array List
+		position++;								// Increment position by 1 in order to get next element in Array List
+		return listings;							// Returns the current argument
 	}
 	
-	@Override
+	/**
+	 * The hasNext method checks if the iteration has reached it's end by checking if the argument at position
+	 * in the Linked List is empty
+	 * @return false  if the current position in the Linked List is null
+	 * @return true   if the current position still holds an argument
+	 */
 	public boolean hasNext() {
 		if(position >= myListings.size() || myListings.get(position) == null){
 			return false;
-		}
+		}									// Checks if the current position still holds an argument
 		else {
 			return true;
 		}
