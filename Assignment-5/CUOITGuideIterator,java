@@ -1,16 +1,29 @@
+import java.util.LinkedList;
 
-public class CUOITGuideIterator implements Iterator {
 
-	@Override
-	public boolean hasNext() {
-		// TODO Auto-generated method stub
-		return false;
+public class CUOITGuideIterator implements Iterator, java.util.Iterator<TVListings>{
+
+	LinkedList<TVListings> myListings = new LinkedList<TVListings>();
+	int position = 0;
+	
+	public CUOITGuideIterator(LinkedList<TVListings> listings){
+		this.myListings = listings;
 	}
-
+	
 	@Override
 	public TVListings next() {
-		// TODO Auto-generated method stub
-		return null;
+		TVListings listings = myListings.get(position);
+		position++;
+		return listings;
 	}
-
+	
+	@Override
+	public boolean hasNext() {
+		if(position >= myListings.size() || myListings.get(position) == null){
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
 }
