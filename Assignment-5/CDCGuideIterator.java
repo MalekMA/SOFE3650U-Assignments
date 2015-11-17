@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class CDCGuideIterator implements Iterator, java.util.Iterator<TVListings>{
 	
 	ArrayList<TVListings> myListings = new ArrayList<TVListings>();	// Creates a local Array List
-	int position = 0;	// Creates a local variable position to be used in iteration
+	int position = 0;						// Creates a local variable position to be used in iteration
 	
 	/**
 	 * CDCGuideIterator constructor
