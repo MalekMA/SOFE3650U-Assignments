@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class CDCGuide implements Guide {
 
-	ArrayList<TVListings> myListings;	// Create a new ArrayList called myListings
+	ArrayList<TVListings> myListings;					// Create a new ArrayList called myListings
 	
 	// Constructor for the CDCGuide class
 	public CDCGuide(){
@@ -33,8 +33,8 @@ public class CDCGuide implements Guide {
 	 * @param  time   the time when the show is being shown
 	 */
 	public void addListing(String title, String time){
-		TVListings listing = new TVListings(title, time);	// Creates a new instance of TVListings 
-		myListings.add(listing);	// Adds the listing into the Array List
+		TVListings listing = new TVListings(title, time);		// Creates a new instance of TVListings 
+		myListings.add(listing);					// Adds the listing into the Array List
 	}
 	
 	/**
@@ -47,6 +47,7 @@ public class CDCGuide implements Guide {
 	/**
 	 * Creates a new instance of the CDCGuideIterator and sends the myListings Array List
 	 * @return CDCGuideIterator with myListings Array List as argument
+	 */
 	public Iterator<TVListings> createIterator() {
 		return new CDCGuideIterator(myListings);
 	}
